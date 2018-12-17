@@ -1,0 +1,29 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+      $('.slick').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        // autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale('ko');
+</script>
+
+<% if (has_config('plugins')) { %>
+    <% for (let plugin in get_config('plugins')) { %>
+    <%- partial('plugins/' + plugin, {head: false}) %>
+    <% } %>
+<% } %>
+
+<%- js('js/script') %>

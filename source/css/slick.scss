@@ -1,0 +1,26 @@
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50px;
+  color: transparent;
+}
+
+.slick-prev {
+  left: 25px;
+  background-image: url(/images/ico_brunch.png);
+  background-size: 400px 300px;
+  background-position: -167px -175px;
+}
+
+.slick-next {
+  right: 25px;
+  background-image: url(/images/ico_brunch.png);
+  background-size: 400px 300px;
+  background-position: -269px -175px;
+}

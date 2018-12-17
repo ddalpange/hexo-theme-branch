@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Use <%= page.title %> for dynamic title -->
+    <title><%= config.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <% if (has_config('description')) { %>
+        <meta name="description" content="<%- get_config('description') %>">
+    <% } %>
+
+    <% if (has_config('keywords')) { %>
+        <meta name="keywords" content="<%= get_config('keywords') %>">
+    <% } %>
+
+    <% if (has_config('open_graph')) { %>
+        <%- open_graph({
+            twitter_id: get_config('open_graph.twitter_id', ''),
+            twitter_site: get_config('open_graph.twitter_site', ''),
+            google_plus: get_config('open_graph.google_plus', ''),
+            fb_admins: get_config('open_graph.fb_admins', ''),
+            fb_app_id: get_config('open_graph.fb_app_id', '')
+        }) %>
+    <% } %>
+
+    <% if (has_config('rss')) { %>
+        <link rel="alternative" href="<%- get_config('rss') %>" title="<%= get_config('title') %>" type="application/atom+xml">
+    <% } %>
+
+    <% if (has_config('favicon')) { %>
+        <link rel="icon" href="<%- get_config('favicon') %>">
+    <% } %>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/<%= get_config('article.highlight', 'atom-one-light') %>.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <%- css('css/style') %>
+
+    <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <% if (has_config('plugins')) { %>
+        <% for (let plugin in get_config('plugins')) { %>
+            <%- partial('plugins/' + plugin, {head: true}) %>
+        <% } %>
+    <% } %>
+</head>
+<body>
+    <div id="wrap" class="wrap">
+        <%- partial('common/header') %>
+        <%- body %>
+    </div>
+
+
+    <%- partial('common/scripts') %>
+</body>
+</html>
