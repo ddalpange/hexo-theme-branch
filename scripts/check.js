@@ -26,7 +26,6 @@ const missingDeps = [
     'hexo-util',
     'hexo-generator-archive',
     'hexo-generator-category',
-    'hexo-generator-index',
     'hexo-generator-tag',
     'hexo-renderer-ejs',
     'hexo-renderer-marked',

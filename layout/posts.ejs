@@ -1,0 +1,29 @@
+<section>
+    <div class="container">
+        <h4 class="section-title">Articles</h4>
+        <p class="section-desc">다양한 경험을 소개합니다.</p>
+        <div class="article-list">
+            <% page.posts.each(function(post){ %>
+                <article class="article">
+                    <div class="article-thumb">
+                        <img src="<%= post.thumbnail %>" alt="thumbnail">
+                    </div>
+                    <div class="article-body">
+                        <a class="article-title" src="<%= post.path %>">
+                            <%= post.title %>
+                        </a>
+                        <div class="article-desc">
+                            <%- post.excerpt %>
+                        </div>
+                        <span class="article-append">
+                            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
+                        </span>
+                    </div>
+                </article>
+            <% }); %>
+        </div>
+        <% if (page.total > 1) { %>
+            <%- partial('common/paginator') %>
+        <% } %>
+    </div>
+</section>
