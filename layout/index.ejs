@@ -15,6 +15,33 @@
     </div>
 </section>
 
+<section>
+    <strong class="section-title">
+        RECENT ARTICLES
+    </strong>
+    <p class="section-desc">
+        브런치의 최신 글들을 만나보세요.
+    </p>
+    <div class="slick article-slider">
+        <% page.posts.each(function(post){ %>
+            <div class="article" href="<%- url_for(post.path) %>">
+                <a href="<%- url_for(post.path) %>">
+                    <img class="article__thumbnail" src="<%= post.thumbnail %>" alt="thumbnail">
+                </a>
+                <a class="article__title" href="<%- url_for(post.path) %>">
+                    <%= post.title %>
+                </a>
+                <div class="article__desc">
+                    <%- post.excerpt %>
+                </div>
+                <div class="article__etc">
+                    <%= date(post.date, config.date_format) %>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</section>
+
 <section class="container">
     <strong class="section-title">
         BRUNCH KEYWORD
@@ -31,29 +58,3 @@
     </div>
 </section>
 
-<section>
-    <strong class="section-title">
-        RECENT ARTICLES
-    </strong>
-    <p class="section-desc">
-        브런치의 최신 글들을 만나보세요.
-    </p>
-    <div class="slick article-slider">
-        <% page.posts.each(function(post){ %>
-            <div class="article" href="<%- url_for(post.path) %>">
-                    <a href="<%- url_for(post.path) %>">
-                        <img class="article__thumbnail" src="<%= post.thumbnail %>" alt="thumbnail">
-                    </a>
-                    <a class="article__title" href="<%- url_for(post.path) %>">
-                        <%= post.title %>
-                    </a>
-                    <div class="article__desc">
-                        <%- post.excerpt %>
-                    </div>
-                    <div class="article__etc">
-                        <%= date(post.date, config.date_format) %>
-                    </div>
-                </div>
-        <% }) %>
-    </div>
-</section>

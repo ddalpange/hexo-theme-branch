@@ -4,30 +4,19 @@ var post = page;
 
 
 <div class="container">
-    <div class='row text-center'>
-        <h1>Post.ejs</h1>
+    <div class="article-detail">
+        <img class="article-detail__thumbnail" src="<%- post.thumbnail %>" alt="">
+        <h1 class="article-detail__title">
+            <%= post.title %>
+        </h1>
+        <div class='text-muted'>
+            <%= date(post.date, config.date_format) %>
+        </div>
+        <div class="article-detail__body">
+            <%- post.content%>
+            <% if(post.excerpt) { %>
+                <%- post.excerpt %>
+            <% } %>
+        </div>
     </div>
-    <div class='row'>
-        <ul>
-            <li>
-                <h3>
-                    <a href="<%- url_for(post.path) %>">
-                        <%= post.title %>
-                    </a>
-                </h3>
-                <div class='text-muted'>
-                    <%= date(post.date, config.date_format) %>
-                </div>
-                <p>
-                    <%- post.content%>
-                </p>
-                <% if(post.excerpt) { %>
-                    <p>
-                        <%- post.excerpt %>
-                    </p>
-                <% } %>
-            </li>
-        </ul>
-    </div>
-
 </div>

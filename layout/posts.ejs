@@ -9,7 +9,7 @@
                         <img src="<%= post.thumbnail %>" alt="thumbnail">
                     </div>
                     <div class="article-body">
-                        <a class="article-title" src="<%= post.path %>">
+                        <a class="article-title" src="<%- url_for(post.path) %>">
                             <%= post.title %>
                         </a>
                         <div class="article-desc">
